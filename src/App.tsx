@@ -25,9 +25,6 @@ function App() {
 
   let contract = new ethers.Contract(contractAddress, contractABI, signer);
 
-  const getAccount = async () =>
-    //@ts-ignore
-    (await window.ethereum.request({ method: "eth_accounts" })[0]) || false;
 
   // const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -72,9 +69,11 @@ function App() {
   }
 
   async function likeTweet(address: string, id: any) {
-
+    try {
       await contract.likeTweet(address, id);
-  
+    } catch (error) {
+      console.error("User rejected request:", error);
+    }
   }
 
   async function getAllTweets() {
