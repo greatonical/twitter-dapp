@@ -164,7 +164,7 @@ function App() {
           children={"Posts"}
         />
         <div className="overflow-y-scroll gap-y-6 flex flex-col h-full">
-          {allTweets.map((tweet: any, index: any) => {
+          {allTweets.map((tweet: any) => {
             return (
               <div className="flex flex-row gap-x-4 py-10 border-[1px] border-neutral-300 rounded-2xl h-96 items-start p-5">
                 <img
